@@ -7,11 +7,8 @@
 <body>
 
     <div id="app">
-        <p v-html="curso">Curso: {{ curso }} || {{ instrutor }}</p>
-        <a v-bind:href="docs">  VueJS </a>
-        <p>Instrutor: <span v-text="instrutor"/></p>
-        <p v-once>Nome inteiro: {{ name }}</p>
-        <p>Nome: {{ getNome() }}</p>
+        <button v-on:click="incrementar">Clique</button>
+        <p>Botao clicando {{ cliques }} vezes</p>
     </div>
 
     <script type="text/javascript">
@@ -19,17 +16,14 @@
         new Vue({
             el: '#app',
             data: {
-                curso: '<span style="color: red">VueJS</span>',
-                instrutor: 'Plinio Naves',
-                docs: 'https://vuejs.org',
-                name: 'Current Name'
+                cliques: 0
             },
             methods: {
-                getNome: function() {
-                    this.name = 'Plinio';
-                    return this.name;
+                incrementar: function(){
+                    this.cliques++;
                 }
             }
+
         });
 
     </script>
