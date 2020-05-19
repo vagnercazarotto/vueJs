@@ -7,8 +7,12 @@
 <body>
 
     <div id="app">
-        <p>{{ curso }} => {{ curso.split('').reverse().join('') }}</p>
-        <p>{{ curso }} => {{ cursorInvertido }}</p>
+        <p> Nome Original: {{ curso }}</p>
+        <p> Nome invertido (computed): {{ cursorInvertidoComputed }}</p>
+        <p> Nome invertido (method): {{ cursorInvertidoMethod() }}</p>
+        <p>Autor: {{ nomeDoAutorInteiro ? 'nome completo' : 'nome' }}</p>
+        <button @click="nomeDoAutorInteiro = !nomeDoAutorInteiro">Alterar nome do autor</button>
+        <br>
         <input @keyup.enter="alterarNomeDoCurso">
     </div>
 
@@ -17,16 +21,22 @@
         new Vue({
             el: '#app',
             data: {
-                curso: 'Curso de VueJs'
+                curso: 'Curso de VueJs',
+                nomeDoAutorInteiro: false
             },
             computed: {
-                cursorInvertido: function(){
+                cursorInvertidoComputed: function(){
+                    console.log('Computed');
                     return this.curso.split('').reverse().join('');
                 }
             },
             methods: {
                 alterarNomeDoCurso: function(event){
                     this.curso = event.target.value;
+                },
+                cursorInvertidoMethod: function(){
+                    console.log('Method');
+                    return this.curso.split('').reverse().join('');
                 }
             }
 
