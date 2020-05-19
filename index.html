@@ -10,8 +10,18 @@
     <div id="app">
         <h1>Produtos</h1>
         <ul>
-            <li v-for="(produto, index) in produtos">
-                {{ texto }} : {{ produto }} : {{ index }}
+            <li v-for="valor in produto">
+                {{ valor }}
+            </li>
+        </ul>
+        <ul>
+            <li v-for="(valor, key) in produto">
+                {{ key }} :: {{ valor }} 
+            </li>
+        </ul>
+        <ul>
+            <li v-for="(valor, key, index) in produto">
+                {{ index }} :: {{ key }} :: {{ valor }} 
             </li>
         </ul>
     </div>
@@ -24,12 +34,13 @@
         new Vue({
             el: '#app',
             data: {
-                texto: 'Produto',
-                produtos: [
-                    'Monitor',
-                    'Teclado',
-                    'Mouse'
-                ]
+
+                produto: {
+                    id: 1,
+                    nome: 'Teclado',
+                    marca: 'Dell',
+                    valor: 100
+                }
             }
         });
 
