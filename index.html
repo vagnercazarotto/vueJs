@@ -7,7 +7,7 @@
 <body>
 
     <div id="app">
-        <p>Curso: {{ curso }} || {{ instrutor }}</p>
+        <p v-html="curso">Curso: {{ curso }} || {{ instrutor }}</p>
         <a v-bind:href="docs">  VueJS </a>
         <p>Instrutor: <span v-text="instrutor"/></p>
         <p v-once>Nome inteiro: {{ name }}</p>
@@ -19,7 +19,7 @@
         new Vue({
             el: '#app',
             data: {
-                curso: 'VueJS',
+                curso: '<span style="color: red">VueJS</span>',
                 instrutor: 'Plinio Naves',
                 docs: 'https://vuejs.org',
                 name: 'Current Name'
