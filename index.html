@@ -7,13 +7,8 @@
 <body>
 
     <div id="app">
-        <p> Nome Original: {{ curso }}</p>
-        <p> Nome invertido (computed): {{ cursorInvertidoComputed }}</p>
-        <p> Nome invertido (method): {{ cursorInvertidoMethod() }}</p>
-        <p>Autor: {{ nomeDoAutorInteiro ? 'nome completo' : 'nome' }}</p>
-        <button @click="nomeDoAutorInteiro = !nomeDoAutorInteiro">Alterar nome do autor</button>
-        <br>
-        <input @keyup.enter="alterarNomeDoCurso">
+        <p>Nome: {{ nomeCompleto }}</p>
+        <button @click="alterarNomes">Alterar Nome</button>
     </div>
 
     <script type="text/javascript">
@@ -21,24 +16,32 @@
         new Vue({
             el: '#app',
             data: {
-                curso: 'Curso de VueJs',
-                nomeDoAutorInteiro: false
+                primeiroNome: 'Plinio',
+                ultimoNome: 'Alves',
+                //nomeCompleto: 'Plinio Naves'
             },
             computed: {
-                cursorInvertidoComputed: function(){
-                    console.log('Computed');
-                    return this.curso.split('').reverse().join('');
+                nomeCompleto: function(){
+                    return this.primeiroNome + ' ' + this.ultimoNome;
                 }
             },
-            methods: {
-                alterarNomeDoCurso: function(event){
-                    this.curso = event.target.value;
+            /*watch:{
+                primeiroNome: function(novoPrimeiroNome, antigoPrimeiroNome){
+                    this.nomeCompleto = novoPrimeiroNome + ' ' + this.ultimoNome;
                 },
-                cursorInvertidoMethod: function(){
-                    console.log('Method');
-                    return this.curso.split('').reverse().join('');
+                ultimoNome: function(novoUltimoNome, antigoUltimoNome){
+                    this.nomeCompleto = this.primeiroNome + ' ' + novoUltimoNome;
+                },
+            },
+            */
+            methods: {
+                alterarNomes: function(event){
+                    this.primeiroNome = 'Naves';
+                    this.ultimoNome = 'Plinio';
                 }
             }
+
+
 
 
         });
