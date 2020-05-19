@@ -7,23 +7,27 @@
 <body>
 
     <div id="app">
-        <button v-on:click.left="onClick">Botao esquerdo</button>
+        <a v-bind:href="docs">VueJS</a>
         <br>
-        <button v-on:click.right="onClick">Botao direita</button>
+        <button v-on:click="onClick">Clique</button>
         <br>
-        <button v-on:click.right.prevent="onClick">Sem botao contexto</button>
+
+        <a :href="docs">VueJS</a>
+        <br>
+        <button @click="onClick">Clique</button>
+
     </div>
 
     <script type="text/javascript">
     
         new Vue({
             el: '#app',
-           methods: {
-               onKey: function(event){
-                console.log('Tecla ' + event.key + ' pressionada');
-               },
-               onClick: function(event){
-                   console.log('Botao ' + event.button + ' pressionado');
+            data: {
+                docs: 'http://vuejs.org'
+            },
+            methods: {
+                onClick: function(event){
+                   console.log('Evento ' + event.type);
                }
            }
 
