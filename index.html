@@ -8,7 +8,7 @@
 
     <div id="app">
         <p>Nome: {{ nomeCompleto }}</p>
-        <button @click="alterarNome">Alterar Nome</button>
+        <input @keyup.enter="alterarNome">
     </div>
 
     <script type="text/javascript">
@@ -16,20 +16,25 @@
         new Vue({
             el: '#app',
             data: {
-                nomeCompleto: 'Plinio Naves'
+                primeiroNome: 'Plinio Naves',
+                ultimoNome: 'Naves'
             },
-            watch: {
-                // we could have a network call here
-                nomeCompleto: function(){
-                    var vm = this;
-                    setTimeout(function() {
-                        vm.nomeCompleto = 'Nome resetado!';
-                    }, 3000);
+            computed: {
+                nomeCompleto: {
+                    get: function() {
+                        return this.primeiroNome + ' ' + this.ultimoNome;
+                    },
+                    set: function(novoNome){
+                        var nomes = novoNome.split(' ');
+                        this.primeiroNome = nomes[0];
+                        this.ultimoNome = nomes[nomes,length - 1];
+                    }
                 }
+
             },
             methods: {
                 alterarNome: function(event){
-                    this.nomeCompleto = 'Nave Plinio';
+                    this.nomeCompleto = event.target.value;
                 }
             }
 
