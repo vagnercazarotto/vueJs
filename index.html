@@ -7,15 +7,11 @@
 <body>
 
     <div id="app">
-        <input v-on:keyup="onKey" placeholder="Qualquer tecla">  
-        <br> 
-        <input v-on:keyup.enter="onKey" placeholder="Qualquer tecla"> 
+        <button v-on:click.left="onClick">Botao esquerdo</button>
         <br>
-        <input v-on:keyup.arrow-up="onKey" placeholder="Qualquer tecla"> 
+        <button v-on:click.right="onClick">Botao direita</button>
         <br>
-        <input v-on:keyup.ctrl.enter="onKey" placeholder="Qualquer tecla">
-        <br>
-        <input v-on:keyup.ctrl.enter.exact="onKey" placeholder="Qualquer tecla + Exact">
+        <button v-on:click.right.prevent="onClick">Sem botao contexto</button>
     </div>
 
     <script type="text/javascript">
@@ -25,6 +21,9 @@
            methods: {
                onKey: function(event){
                 console.log('Tecla ' + event.key + ' pressionada');
+               },
+               onClick: function(event){
+                   console.log('Botao ' + event.button + ' pressionado');
                }
            }
 
