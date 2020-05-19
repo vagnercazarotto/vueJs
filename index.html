@@ -5,26 +5,11 @@
     <script type="text/javascript" src="https://unpkg.com/vue"></script>
 
     <style>
-        .caixa {
-            width: 200px;
-            height: 200px;
+        #app div {
             display: inline-block;
             margin-right: 10px;
             background-color: gray;
         }
-        .coral {
-            background-color: lightcoral;
-        }
-        .verde {
-            background-color: green;
-        }
-        .azul {
-            background-color: lightblue;
-        }
-        .circulo {
-            border-radius: 100% ;
-        }
-
     </style>
 
 
@@ -33,23 +18,13 @@
 <body>
 
     <div id="app">
-        <div class="caixa"
-            :class="{ coral: applicarClasse }"
-            @click="applicarClasse = !applicarClasse">
-        </div>
-
-        <div class="caixa"
-            :class="nomeDaClasse">
-        </div>
-        <div class="caixa"
-            :class="classeCSS"
-            @click="applicarClasse = !applicarClasse">
-        </div>
         <div
-            class="caixa"
-            :class="[ 'circulo', nomeDaClasse, { verde: applicarClasse }]">
+            style="width: 200px; height: 200px;"
+            :style="{ backgroundColor: cor, height: tamanho + 'px'}" >
         </div>
-        <input v-model="nomeDaClasse" placeholder="Nome da classe CSS">
+        <div :style="estilosCSS"></div>
+        <input v-model="cor" placeholder="Cor">
+        <input v-model.number="tamanho" placeholder="Tamanho em Pixels">
     </div>
             
         
@@ -60,17 +35,18 @@
         new Vue({
             el: '#app',
             data: {
-                applicarClasse: false,
-                nomeDaClasse: ''
+                cor: '',
+                tamanho: 200
             },
             computed: {
-                classeCSS: function(){
-                    return {
-                        azul: this.applicarClasse,
-                        circulo: this.applicarClasse,
-                        verde: !this.applicarClasse
+                estilosCSS: function() {
+                    return {                    
+                        backgroundColor: this.cor,
+                        height: (this.tamanho + 10) + 'px',
+                        width: '100px'
                     };
                 }
+
             }
         });
 
