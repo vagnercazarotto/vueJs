@@ -10,6 +10,8 @@
         <p>Curso: {{ curso }} || {{ instrutor }}</p>
         <a v-bind:href="docs">  VueJS </a>
         <p>Instrutor: <span v-text="instrutor"/></p>
+        <p v-once>Nome inteiro: {{ name }}</p>
+        <p>Nome: {{ getNome() }}</p>
     </div>
 
     <script type="text/javascript">
@@ -19,7 +21,14 @@
             data: {
                 curso: 'VueJS',
                 instrutor: 'Plinio Naves',
-                docs: 'https://vuejs.org'
+                docs: 'https://vuejs.org',
+                name: 'Current Name'
+            },
+            methods: {
+                getNome: function() {
+                    this.name = 'Plinio';
+                    return this.name;
+                }
             }
         });
 
