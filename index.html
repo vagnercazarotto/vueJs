@@ -7,15 +7,9 @@
 <body>
 
     <div id="app">
-        <a v-bind:href="docs">VueJS</a>
-        <br>
-        <button v-on:click="onClick">Clique</button>
-        <br>
-
-        <a :href="docs">VueJS</a>
-        <br>
-        <button @click="onClick">Clique</button>
-
+        <p>{{ curso }} => {{ curso.split('').reverse().join('') }}</p>
+        <p>{{ curso }} => {{ cursorInvertido }}</p>
+        <input @keyup.enter="alterarNomeDoCurso">
     </div>
 
     <script type="text/javascript">
@@ -23,13 +17,19 @@
         new Vue({
             el: '#app',
             data: {
-                docs: 'http://vuejs.org'
+                curso: 'Curso de VueJs'
+            },
+            computed: {
+                cursorInvertido: function(){
+                    return this.curso.split('').reverse().join('');
+                }
             },
             methods: {
-                onClick: function(event){
-                   console.log('Evento ' + event.type);
-               }
-           }
+                alterarNomeDoCurso: function(event){
+                    this.curso = event.target.value;
+                }
+            }
+
 
         });
 
