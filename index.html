@@ -10,8 +10,8 @@
     <div id="app">
         <h1>Produtos</h1>
         <ul>
-            <li v-for="produto in produtos">
-                {{ texto }} : {{ produto }}
+            <li v-for="(produto, index) in produtos">
+                {{ texto }} : {{ produto }} : {{ index }}
             </li>
         </ul>
     </div>
