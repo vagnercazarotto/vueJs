@@ -8,8 +8,12 @@
 <body>
 
     <div id="app">
-        <button @click="mostrar = !mostrar">Toogle</button>
-        <p v-show="mostrar">Diretiva v-show "{{ mostrar }}"</p>
+        <h1>Produtos</h1>
+        <ul>
+            <li v-for="produto in produtos">
+                {{ texto }} : {{ produto }}
+            </li>
+        </ul>
     </div>
             
         
@@ -20,7 +24,12 @@
         new Vue({
             el: '#app',
             data: {
-                mostrar:true
+                texto: 'Produto',
+                produtos: [
+                    'Monitor',
+                    'Teclado',
+                    'Mouse'
+                ]
             }
         });
 
