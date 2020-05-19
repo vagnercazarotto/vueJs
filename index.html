@@ -8,14 +8,15 @@
 <body>
 
     <div id="app">
-        <ul>
-            <li>Ola vue js</li>
-            <li>Item 1</li>
-            <template v-if="">
-                <li>Item 3</li>
-                <li>Item 4</li>
-            </template>
-        </ul>
+        <button @click="login = !login">Toogle</button>
+        <template v-if="login">
+            <label>Login: </label>
+            <label placeholder="Login" key="campo-login"></label>
+        </template>
+        <template v-else>
+            <label>Email: </label>
+            <input placeholder="Email" key="campo-email"></input>
+        </template>
     </div>
             
         
@@ -25,7 +26,9 @@
     
         new Vue({
             el: '#app',
-            mostrar: true
+            data: {
+                login:true
+            }
         });
 
     </script>
