@@ -4,27 +4,13 @@
     <title>VueJS - Guia completo</title>
     <script type="text/javascript" src="https://unpkg.com/vue"></script>
 
-    <style>
-        #app div {
-            display: inline-block;
-            margin-right: 10px;
-            background-color: gray;
-        }
-    </style>
-
-
-
 </head>
 <body>
 
     <div id="app">
-        <div
-            style="width: 200px; height: 200px;"
-            :style="{ backgroundColor: cor, height: tamanho + 'px'}" >
-        </div>
-        <div :style="estilosCSS"></div>
-        <input v-model="cor" placeholder="Cor">
-        <input v-model.number="tamanho" placeholder="Tamanho em Pixels">
+        <p v-if="mostrar">Ola VueJS</p>
+        <p v-else>Ate logo!</p>
+        <button @click="mostrar = !mostrar">Alterar</button>
     </div>
             
         
@@ -35,18 +21,7 @@
         new Vue({
             el: '#app',
             data: {
-                cor: '',
-                tamanho: 200
-            },
-            computed: {
-                estilosCSS: function() {
-                    return {                    
-                        backgroundColor: this.cor,
-                        height: (this.tamanho + 10) + 'px',
-                        width: '100px'
-                    };
-                }
-
+                mostrar : true
             }
         });
 
