@@ -8,15 +8,8 @@
 <body>
 
     <div id="app">
-        <button @click="login = !login">Toogle</button>
-        <template v-if="login">
-            <label>Login: </label>
-            <label placeholder="Login" key="campo-login"></label>
-        </template>
-        <template v-else>
-            <label>Email: </label>
-            <input placeholder="Email" key="campo-email"></input>
-        </template>
+        <button @click="mostrar = !mostrar">Toogle</button>
+        <p v-show="mostrar">Diretiva v-show "{{ mostrar }}"</p>
     </div>
             
         
@@ -27,7 +20,7 @@
         new Vue({
             el: '#app',
             data: {
-                login:true
+                mostrar:true
             }
         });
 
