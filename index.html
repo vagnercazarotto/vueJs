@@ -7,8 +7,9 @@
 <body>
 
     <div id="app">
-        <p>Nome: {{ nomeCompleto }}</p>
-        <input @keyup.enter="alterarNome">
+        <input :value="nome" @input="nome = $event.target.value">
+        <input v-model="nome">
+        <p>Nome: {{ nome }}</p>
     </div>
 
     <script type="text/javascript">
@@ -16,27 +17,10 @@
         new Vue({
             el: '#app',
             data: {
-                primeiroNome: 'Plinio Naves',
-                ultimoNome: 'Naves'
-            },
-            computed: {
-                nomeCompleto: {
-                    get: function() {
-                        return this.primeiroNome + ' ' + this.ultimoNome;
-                    },
-                    set: function(novoNome){
-                        var nomes = novoNome.split(' ');
-                        this.primeiroNome = nomes[0];
-                        this.ultimoNome = nomes[nomes,length - 1];
-                    }
-                }
+                nome: 'Plinio',
 
             },
-            methods: {
-                alterarNome: function(event){
-                    this.nomeCompleto = event.target.value;
-                }
-            }
+           
 
 
 
