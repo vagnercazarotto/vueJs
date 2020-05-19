@@ -8,11 +8,14 @@
 <body>
 
     <div id="app">
-        <p v-if="nota === 'A'">Parabéns, você tirou um "A"!</p>
-        <p v-else-if="nota === 'B'">Você tirou um "B", mas pode melhorar!</p>
-        <p v-else-if="nota === 'C'">Você precisa melhorar, estude mais. Sua nota: "C"</p>
-        <p v-else>Nota ainda não publicada.</p>
-        <input v-model="nota" placeholder="Nota">
+        <ul>
+            <li>Ola vue js</li>
+            <li>Item 1</li>
+            <template v-if="">
+                <li>Item 3</li>
+                <li>Item 4</li>
+            </template>
+        </ul>
     </div>
             
         
@@ -22,9 +25,7 @@
     
         new Vue({
             el: '#app',
-            data: {
-                nota: ''
-            }
+            mostrar: true
         });
 
     </script>
