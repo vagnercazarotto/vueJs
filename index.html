@@ -7,8 +7,11 @@
 <body>
 
     <div id="app">
-        <h2 ref="meuTitulo">{{ titulo }}</h2>
-        <button @click="alterarTitulo">Alterar Titulo</button>
+        <h2>{{ curso }}</h2>
+    </div>
+
+    
+    <div id="app2">
     </div>
 
     <script type="text/javascript">
@@ -16,24 +19,22 @@
 
 
         var vm = new Vue({
-            el: '#app',
             data: {
-                titulo: 'Vue'
-            },
-            methods: {
-                alterarTitulo: function(event){
-                    this.$refs.meuTitulo.innerText = 'Curso de JS';
-                }
+                curso: 'Curso de vueJS'
             }
-            
         });
 
-        console.log(vm);
-
+        //vm.$mount('#app');
+        
         setTimeout(function(){
-            vm.titulo = 'Instancia Vue';
-        },5000);
+            vm.$mount('#app');
+        },3000);
 
+        var vm2 = new Vue({
+            template: '<h2>Usando template</h2>'
+        })
+
+        vm2.$mount('#app2');
 
     </script>
     
