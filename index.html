@@ -18,11 +18,12 @@
     <div id="app2">
         <h2>Instancia 2</h2>
         <p>Titulo : {{ titulo }}</p>
+        <button @click="alterarTitulo">Alterar Titulo</button>
     </div>
 
     <script type="text/javascript">
     
-        new Vue({
+        var vm1 = new Vue({
             el: '#app1',
             data: {
                 titulo: 'Instância Vue 1',
@@ -54,10 +55,16 @@
 
 
         // new VUE instance
-        new Vue({
+        var vm2 = new Vue({
             el:'#app2',
             data: {
                 titulo: 'Instance vue 2'
+            },
+            methods: {
+                alterarTitulo: function(event){
+                    vm1.titulo = 'Curso de VueJS 1'
+                }
+
             }
         });
 
