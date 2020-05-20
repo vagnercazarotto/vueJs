@@ -8,11 +8,9 @@
 <body>
 
     <div id="app">
-        <h1>Produtos</h1>
+        <h1>Tarefas:</h1>
         <ul>
-            <li v-for="(valor, index) in 30">
-                {{ index }} :: {{ valor }}
-            </li>
+            <li v-for="tarefa in tarefas" :key="tarefa.id" v-if="!tarefa.completa">{{ tarefa.titulo }}</li>
         </ul>
 
     </div>
@@ -23,7 +21,15 @@
     <script type="text/javascript">
     
         new Vue({
-            el: '#app'
+            el: '#app',
+            data: {
+                tarefas: [
+                    { id: 1, titulo: 'Aprender JavaScript', completa: true },
+                    { id: 2, titulo: 'Aprender VueJS', completa: false },
+                    { id: 3, titulo: 'Aprender Vuex', completa: false },
+                    { id: 4, titulo: 'Aprender VueRouter', completa: false }
+                ]
+            }
 
         });
 
