@@ -8,38 +8,31 @@
 
     <div id="app">
         <h2>Instância Vue</h2>
-        <p>{{ titulo }}</p>
-
-        <h3>Propriedades dinâmicas:</h3>
-        <p>{{ novaPropriedade }}</p> 
-        <p>{{ usuario }}</p>
- 
+        <button @click="mostrar = !mostrar">Toggle</button>
+        <p v-if="mostrar">{{ titulo }}</p>
     </div>
 
     <script type="text/javascript">
 
+        var data = {
+            titulo: 'Curso de VueJS',
+            mostrar: true
+        };
+
         var vm = new Vue({
             el: '#app',
-            data: {
-                titulo: 'Curso de VueJS',
-                usuario: {}
-            }
+            data: data
         });
 
-        // vm.titulo
-        //vm.novaPropriedade = 'Nova propriedade!'; // NÃo reativo
         console.log(vm);
 
-        // after start
-        setTimeout(function() {
-            vm.novaPropriedade = 'Nova propriedade!';
-            vm.$set(vm.usuario, 'nome', 'Plínio Naves');
-            setTimeout(function() {
-                vm.novaPropriedade = 'Nova propriedade alterada!';
-                Vue.set(vm.usuario, 'email', 'plinio@email.com');
-            }, 3000);
-        }, 3000);
+        console.log(vm.$el === document.getElementById('app'));
 
+        console.log(vm.$data === data);
+
+        setTimeout(function() {
+            data.titulo = 'VueJS';
+        }, 3000);
 
     </script>
     
