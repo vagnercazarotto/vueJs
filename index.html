@@ -6,35 +6,27 @@
 </head>
 <body>
 
-    <div id="app">
-        <h2>{{ curso }}</h2>
-    </div>
 
     
-    <div id="app2">
+    <div id="app">
+        <h2>Instancia 01</h2>
+        <meu-component></meu-component>
+        <meu-component></meu-component>
     </div>
+
 
     <script type="text/javascript">
 
-
-
-        var vm = new Vue({
-            data: {
-                curso: 'Curso de vueJS'
-            }
+        Vue.component('meu-component',{
+            template: '<h3>Curso de VueJs</h3>'
         });
 
-        //vm.$mount('#app');
-        
-        setTimeout(function(){
-            vm.$mount('#app');
-        },3000);
+        var vm = new Vue({
+            el: '#app',
+            template: '<h2>Curso de VueJs</h2>'
+        });
 
-        var vm2 = new Vue({
-            template: '<h2>Usando template</h2>'
-        })
 
-        vm2.$mount('#app2');
 
     </script>
     
