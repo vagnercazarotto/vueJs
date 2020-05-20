@@ -8,13 +8,13 @@
 <body>
 
     <div id="app">
-        <h1>Produtos:</h1>
+        <h1>Objetos:</h1>
         <ul>
-            <li v-for="produto in produtos" :key="produto.id">{{ produto.nome }}</li>
+            <li v-for="(valor,chave) in produto" >{{ chave }} :: {{ valor }}</li>
         </ul>
-        <button @click="adicionarProduto">Adicionar produto</button>
-        <button @click="produtos = produtos.slice(0, 4)">Substituir array</button>
-        <button @click="substituirProduto">Substituir array</button>
+        <button @click="adicionarPropriedades">Adicionar propriedades</button>
+        <button @click="changeObject">change object</button>
+ 
 
     </div>
             
@@ -26,32 +26,31 @@
         new Vue({
             el: '#app',
             data: {
-                produtos: [
-                    { id: 1, nome: 'Monitor' },
-                    { id: 2, nome: 'Teclado' },
-                    { id: 3, nome: 'Mouse' },
-                    { id: 4, nome: 'Processador' }
-                ]
+                produto: {
+                    id: 2,
+                    nome: 'Teclado',
+                    marca: 'Dell'
+                },
+                usuario: {
+                    nome: '',
+                    idade: 0
+                }
             },
             methods: {
-                adicionarProduto: function(event){
-                    var id = this.produtos.length + 1;
-                    this.produtos.push({id: id, nome: 'Produto ' + id});
+                adicionarPropriedades: function(event){
+                    // isnt' reactive
+                    //this.usuario = { nome: 'Plinio'};
+                    //Vue.set(this.produto, 'preco', 100);
+                    //or 
+                    this.$set(this.produto, 'preco', 100);
                 },
-                substituirProduto: function(evento){
-                    var tamanho = this.produtos.length;
-                    var indice = Math.round(tamanho/2);
-                    var novoProduto = {id: (tamanho+1), nome: 'Produto ' + (tamanho+1)};
-                    console.log(tamanho, indice);
-                    // this isn't reactive !!
-                    //this.produtos[indice] = novoProduto;
-                    //Vue.set(this.produtos, indice, novoProduto);
-                    this.$set(this.produtos, indice, novoProduto);
-
+                changeObject: function(event){
+                    this.produto = Object.assign({}, this.produto, {
+                        preco: 50,
+                        cor: 'preta'
+                    });
                 }
             }
-
-
         });
 
     </script>
