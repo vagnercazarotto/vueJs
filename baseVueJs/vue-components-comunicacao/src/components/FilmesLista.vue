@@ -11,6 +11,7 @@
           v-for="filme in filmes"
           :key="filme.id"
           :filme="filme"
+          :class="applicarClasseAtiva(filme)"
           @selecionarFilme="filmeSelecionado = $event" />
       </div>
     </div>
@@ -43,6 +44,13 @@ export default {
         { id: 3, titulo: 'Vingadores: guerra infinita! 3333', ano: 2018 }
       ],
       filmeSelecionado: undefined
+    }
+  },
+  methods: {
+    applicarClasseAtiva (filmeAlterado) {
+      return {
+        active: this.filmeSelecionado && this.filmeSelecionado.id === filmeAlterado.id
+      }
     }
   }
 }
