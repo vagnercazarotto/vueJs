@@ -1,31 +1,16 @@
 <template>
-<!--     <li class="list-group-item">
-        <span> {{ filmeTituloComputado }} :: {{ ano }}</span>
+    <li class="list-group-item">
+        <span> {{ filme.titulo }} :: {{ filme.ano }}</span>
         <button class="btn btn-success float-right">Editar</button>
-    </li> -->
-    <div>
-        <input type="text" :value="titulo" :placeholder="$attrs.placeholder" />
-    </div>
+    </li>
 </template>
 
 <script>
 export default {
   props: {
-    titulo: {
-      type: String
-    },
-    ano: {
-      type: Number,
+    filme: {
+      type: Object,
       required: true
-    }
-  },
-  created () {
-    console.log('Filme Titulo ', this.titulo)
-    console.log(typeof this.titulo)
-  },
-  computed: {
-    filmeTituloComputado () {
-      return `Titulo :: ${this.titulo}`
     }
   }
 }
