@@ -1,12 +1,6 @@
 import Vue from 'vue'
 
-// don't return a shared object to a component
-/*const data = {
-  titulo: 'curso de vue JS',
-  contador: 0
-}
-*/
-
+/*
 Vue.component('pjn-component', { 
   data: function() {
     return {
@@ -26,7 +20,38 @@ Vue.component('pjn-component', {
     </div>
   `  
 })
+*/
+
+const pnjComponent = {
+    data: function() {
+      return {
+        titulo: 'curso de vue JS',
+        contador: 0
+      }
+    },
+    methods: {
+      incrementar: function(){
+        this.contador++
+      }
+    },
+    template:`
+      <div>
+        <h1>{{ titulo }} </h1>
+        <button @click="incrementar">Clicado {{ contador }} vezes!</button>
+      </div>
+    `
+}
+
+
 
 new Vue({
- el: '#app'
+ el: '#app1',
+ components: {
+   'pjn-component': pnjComponent
+ }
 })
+
+new Vue({
+  el: '#app2'
+ })
+ 
