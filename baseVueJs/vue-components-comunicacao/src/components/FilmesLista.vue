@@ -7,13 +7,11 @@
       <h2>Filmes</h2>
 
       <div class="list-group list-group-flush">
-<!--         <FilmesListaIten
-          v-for="(filme, index) in filmes"
-          :key="index"
-          :filmeTitulo="filme" /> -->
-
-        <FilmesListaIten />
-
+        <FilmesListaIten
+          v-for="filme in filmes"
+          :key="filme.id"
+          :filmeTitulo="filme.titulo"
+          :ano="filme.ano"/>
       </div>
     </div>
 
@@ -40,9 +38,9 @@ export default {
   data () {
     return {
       filmes: [
-        'Vingadores: guerra infinita! 3',
-        'Vingadores: guerra infinita! 3 3',
-        'Vingadores: guerra infinita! 3 3 3'
+        { id: 1, titulo: 'Vingadores: guerra infinita! 3', ano: 2016 },
+        { id: 2, titulo: 'Vingadores: guerra infinita! 33', ano: 2017 },
+        { id: 3, titulo: 'Vingadores: guerra infinita! 3333', ano: 2018 }
       ]
     }
   }

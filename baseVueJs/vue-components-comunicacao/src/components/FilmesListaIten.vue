@@ -1,6 +1,6 @@
 <template>
     <li class="list-group-item">
-        <span> {{ filmeTituloComputado }} </span>
+        <span> {{ filmeTituloComputado }} :: {{ ano }}</span>
         <button class="btn btn-success float-right">Editar</button>
     </li>
 </template>
@@ -9,11 +9,11 @@
 export default {
   props: {
     filmeTitulo: {
-      type: String,
-      default: 'no data',
-      validator (filmeTitulo) {
-        return true
-      }
+      type: String
+    },
+    ano: {
+      type: Number,
+      required: true
     }
   },
   created () {
