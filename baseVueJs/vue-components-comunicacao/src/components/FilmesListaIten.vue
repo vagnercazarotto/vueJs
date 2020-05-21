@@ -10,7 +10,10 @@ export default {
   props: {
     filmeTitulo: {
       type: String,
-      default: 'no data'
+      default: 'no data',
+      validator (filmeTitulo) {
+        return true
+      }
     }
   },
   created () {
