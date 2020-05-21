@@ -7,9 +7,12 @@
 
 <script>
 export default {
-  props: ['filmeTitulo'],
+  props: {
+    filmeTitulo: String
+  },
   created () {
     console.log('Filme Titulo ', this.filmeTitulo)
+    console.log(typeof this.filmeTitulo)
   },
   computed: {
     filmeTituloComputado () {
