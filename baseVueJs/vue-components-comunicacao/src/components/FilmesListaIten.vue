@@ -8,7 +8,10 @@
 <script>
 export default {
   props: {
-    filmeTitulo: String
+    filmeTitulo: {
+      type: String,
+      default: 'no data'
+    }
   },
   created () {
     console.log('Filme Titulo ', this.filmeTitulo)
