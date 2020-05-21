@@ -1,57 +1,13 @@
 import Vue from 'vue'
 
-/*
-Vue.component('pjn-component', { 
-  data: function() {
-    return {
-      titulo: 'curso de vue JS',
-      contador: 0
-    }
-  },
-  methods: {
-    incrementar: function(){
-      this.contador++
-    }
-  },
-  template:`
-    <div>
-      <h1>{{ titulo }} </h1>
-      <button @click="incrementar">Clicado {{ contador }} vezes!</button>
-    </div>
-  `  
-})
-*/
+import AppContador from './AppContador.vue'
+import App from './App.vue'
 
-const pnjComponent = {
-    data: function() {
-      return {
-        titulo: 'curso de vue JS',
-        contador: 0
-      }
-    },
-    methods: {
-      incrementar: function(){
-        this.contador++
-      }
-    },
-    template:`
-      <div>
-        <h1>{{ titulo }} </h1>
-        <button @click="incrementar">Clicado {{ contador }} vezes!</button>
-      </div>
-    `
-}
-
-
+// register a component in a global way
+Vue.component('app-contador', AppContador)
 
 new Vue({
- el: '#app1',
- components: {
-   'pjn-component': pnjComponent
- }
+ el: '#app',
+ render: h => h(App)
 })
 
-new Vue({
-  el: '#app2'
- })
- 
