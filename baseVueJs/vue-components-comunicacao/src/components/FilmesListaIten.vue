@@ -19,7 +19,8 @@ export default {
   methods: {
     selecionar (event) {
       // this.$emit('selecionarFilme', this.filme)
-      eventBus.$emit('selecionarFilme', this.filme)
+      // eventBus.$emit('selecionarFilme', this.filme)
+      eventBus.selecionarFilme(this.filme)
     }
   }
 }

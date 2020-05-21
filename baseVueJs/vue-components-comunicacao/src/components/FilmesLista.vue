@@ -38,6 +38,7 @@
 import FilmesListaIten from './FilmesListaIten.vue'
 import FilmesListaItenInfo from './FilmesListaItenInfo.vue'
 import FilmesListaItenEditar from './FilmesListaItenEditar.vue'
+import { eventBus } from './../main'
 
 export default {
   components: {
@@ -65,6 +66,11 @@ export default {
     editarFilme (filme) {
       this.editar = true
       this.filmeSelecionado = filme
+    },
+    created () {
+      eventBus.$on('selecionarFilme', (filmeSelecionado) => {
+        this.filmeSelecionado = filmeSelecionado
+      })
     }
   }
 }
