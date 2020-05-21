@@ -1,8 +1,11 @@
 <template>
-    <li class="list-group-item">
+<!--     <li class="list-group-item">
         <span> {{ filmeTituloComputado }} :: {{ ano }}</span>
         <button class="btn btn-success float-right">Editar</button>
-    </li>
+    </li> -->
+    <div>
+        <input type="text" :value="titulo" :placeholder="$attrs.placeholder" />
+    </div>
 </template>
 
 <script>
