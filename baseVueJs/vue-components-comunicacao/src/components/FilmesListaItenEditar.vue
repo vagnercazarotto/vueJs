@@ -8,7 +8,7 @@
                 type="text"
                 class="form-control"
                 placeholder="Insira o título"
-                :value="filme.titulo">
+                v-model="filme.titulo">
         </div>
 
         <div class="form-group">
@@ -17,7 +17,7 @@
                 type="text"
                 class="form-control"
                 placeholder="Insira o ano"
-                :value="filme.ano">
+                v-model="filme.ano">
         </div>
     </div>
 </template>
