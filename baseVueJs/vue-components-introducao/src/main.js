@@ -1,6 +1,6 @@
 import Vue from 'vue'
 
-import AppContador from './AppContador.vue'
+import AppContador from './components/AppContador.vue'
 import App from './App.vue'
 
 // register a component in a global way
