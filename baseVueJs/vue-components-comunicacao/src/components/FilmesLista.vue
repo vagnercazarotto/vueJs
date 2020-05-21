@@ -19,7 +19,14 @@
     <!-- coluna 2 -->
     <div class="col-4">
 
-      <FilmesListaItenInfo :filme="filmeSelecionado" />
+      <FilmesListaItenInfo
+      v-if="!editar"
+      :filme="filmeSelecionado"
+      @editarFilme="editarFilme" />
+
+      <FilmesListaItenEditar
+      v-else
+      :filme="filmeSelecionado"/>
 
     </div>
 
@@ -30,11 +37,13 @@
 
 import FilmesListaIten from './FilmesListaIten.vue'
 import FilmesListaItenInfo from './FilmesListaItenInfo.vue'
+import FilmesListaItenEditar from './FilmesListaItenEditar.vue'
 
 export default {
   components: {
     FilmesListaIten,
-    FilmesListaItenInfo
+    FilmesListaItenInfo,
+    FilmesListaItenEditar
   },
   data () {
     return {
@@ -43,7 +52,8 @@ export default {
         { id: 2, titulo: 'Vingadores: guerra infinita! 33', ano: 2017 },
         { id: 3, titulo: 'Vingadores: guerra infinita! 3333', ano: 2018 }
       ],
-      filmeSelecionado: undefined
+      filmeSelecionado: undefined,
+      editar: false
     }
   },
   methods: {
@@ -51,6 +61,10 @@ export default {
       return {
         active: this.filmeSelecionado && this.filmeSelecionado.id === filmeAlterado.id
       }
+    },
+    editarFilme (filme) {
+      this.editar = true
+      this.filmeSelecionado = filme
     }
   }
 }
