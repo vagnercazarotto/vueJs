@@ -2,34 +2,28 @@
   <div id="app" class="container">
 
     <h1>Vue JS</h1>
-
-    <Post>
-      <h2 slot="cabecalho">Component no Vue</h2>
-
-
-        <p>Components sao pecas importantes</p>
-        <span>....</span>
-
-      
-      <small slot="rodape">autor do post..</small>
-
-      <template slot="botao">Detalhes</template>
-
-    </Post>
-
+    <PostLista :posts="posts" />
 
   </div>
 </template>
 
 <script>
 
-import Post from './components/Post.vue'
+import PostLista from './components/PostLista.vue'
 
 export default {
   components: {
-    Post
+    PostLista
+  },
+  data () {
+    return {
+      posts: [
+        { id: 1, titulo: 'titludo do post', conteudo: 'Conteudo do post', autor: 'autor do post' },
+        { id: 2, titulo: 'titludo do post 2', conteudo: 'Conteudo do post 2', autor: 'autor do post 2' }
+      ]
+    }
   }
-}
+} 
 </script>
 
 <style scoped>
