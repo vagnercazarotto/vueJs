@@ -13,6 +13,8 @@
       
       <small slot="rodape">autor do post..</small>
 
+      <template slot="botao">Detalhes</template>
+
     </Post>
 
 

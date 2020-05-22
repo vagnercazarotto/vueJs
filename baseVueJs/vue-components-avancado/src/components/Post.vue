@@ -6,7 +6,10 @@
         </div>
 
         <div class="post-conteudo">
-            <slot></slot>
+            <slot name="rodape"></slot>
+            <a href="#" class="link">
+                <slot name="botao">Ler mais..</slot>
+            </a>
         </div>
 
         <div class="post-rodape">
@@ -33,6 +36,10 @@
 
     .post-rodape {
         font-style: italic;
+    }
+
+    .link {
+        float: right;
     }
 
 </style>
