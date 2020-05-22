@@ -4,8 +4,9 @@
     <h1>Vue JS</h1>
 
     <Post>
-      <h2>Component no Vue</h2>
-      <p>Components sao pecas importantes</p>
+      <h2 slot="cabecalho">Component no Vue</h2>
+      <p slot="conteudo">Components sao pecas importantes</p>
+      <small slot="rodape">autor do post..</small>
     </Post>
 
 
