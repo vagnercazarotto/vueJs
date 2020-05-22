@@ -1,22 +1,33 @@
 <template>
   <div id="app" class="container">
 
-    <h1>Vue JS</h1>
-    <PostLista :posts="posts" />
+    <h1>Components Dinamicos</h1>
+    <Home />
+    <Sobre />
+
+    <button @click="componentSelecionado = 'Home'"> Home </button>
+    <button @click="componentSelecionado = 'Sobre'"> Sobre </button>
+
+    <p> {{  componentSelecionado }} </p>
+
+    <component :is="componentSelecionado"></component>
 
   </div>
 </template>
 
 <script>
 
-import PostLista from './components/PostLista.vue'
+import Home from './components/Home'
+import Sobre from './components/Sobre'
 
 export default {
   components: {
-    PostLista
+    Home,
+    Sobre
   },
   data () {
     return {
+      componentSelecionado: 'Home',
       posts: [
         { id: 1, titulo: 'titludo do post', conteudo: 'Conteudo do post', autor: 'autor do post' },
         { id: 2, titulo: 'titludo do post 2', conteudo: 'Conteudo do post 2', autor: 'autor do post 2' }
