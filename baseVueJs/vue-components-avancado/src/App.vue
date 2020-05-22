@@ -7,10 +7,13 @@
 
     <button @click="componentSelecionado = 'Home'"> Home </button>
     <button @click="componentSelecionado = 'Sobre'"> Sobre </button>
+    <button @click="componentSelecionado = 'Assincrono'"> Assincrono </button>
 
     <p> {{  componentSelecionado }} </p>
-
-    <component :is="componentSelecionado"></component>
+    <keep-alive>
+      <component :is="componentSelecionado"></component>
+    </keep-alive>
+    
 
   </div>
 </template>
