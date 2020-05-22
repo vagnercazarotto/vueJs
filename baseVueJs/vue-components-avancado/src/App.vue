@@ -6,10 +6,10 @@
     <Post>
       <h2 slot="cabecalho">Component no Vue</h2>
 
-      <template slot="conteudo">
+
         <p>Components sao pecas importantes</p>
         <span>....</span>
-      </template>
+
       
       <small slot="rodape">autor do post..</small>
 

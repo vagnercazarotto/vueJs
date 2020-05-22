@@ -6,7 +6,7 @@
         </div>
 
         <div class="post-conteudo">
-            <slot name="conteudo"></slot>
+            <slot></slot>
         </div>
 
         <div class="post-rodape">
