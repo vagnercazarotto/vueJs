@@ -3,8 +3,11 @@
 
     <h1>Vue JS</h1>
 
-    <Post titulo="Component no Vue"/>
-    <Post titulo="Passando props via props"/>
+    <Post>
+      <h2>Component no Vue</h2>
+      <p>Components sao pecas importantes</p>
+    </Post>
+
 
   </div>
 </template>
