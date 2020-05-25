@@ -11,14 +11,11 @@
       <router-link
        to="/"
        class="btn btn-info mb-2 mr-2"
-       active-class="active"
        exact>Home</router-link>
 
       <router-link 
        :to="{ path: '/contatos'}"
-       class="btn btn-info mb-2"
-       exact-active-class="active"
-       >Contatos</router-link>
+       class="btn btn-info mb-2">Contatos</router-link>
 
       <router-view></router-view>
 
